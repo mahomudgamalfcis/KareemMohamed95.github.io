@@ -2,7 +2,7 @@
  var mathInputBinding = new Shiny.InputBinding();
 
 function initBinding(){
-  if(MQ === undefined){
+  if(typeof MQ === "undefined"){
     window.setTimeout(initBinding,500);
     return;
   }
