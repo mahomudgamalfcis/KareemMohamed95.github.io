@@ -95,6 +95,11 @@ $.extend(mathInputBinding, {
 
 });
 
+Shiny.inputBindings.register(mathInputBinding, 'shinymath.mathInput');
+
+Shiny.onInputChange("calculus_resources_ready","TRUE");
+
+}
 function addSqrtSymbol(inputId){
   MQ.MathField(document.getElementById(inputId)).cmd("\\sqrt");
   MQ.MathField(document.getElementById(inputId)).focus();
@@ -106,8 +111,5 @@ function addFracSymbol(inputId){
 function addPowerSymbol(inputId){
   MQ.MathField(document.getElementById(inputId)).cmd("^");
   MQ.MathField(document.getElementById(inputId)).focus();
-}
-
-Shiny.inputBindings.register(mathInputBinding, 'shinymath.mathInput');
 }
 initBinding();
