@@ -1,6 +1,6 @@
 var MQ;
 function initQuill(){
-    if(typeof(MathQuill) === undefined){
+    if(MathQuill === undefined){
         window.setTimeout(initQuill,500);
         return;
     }
