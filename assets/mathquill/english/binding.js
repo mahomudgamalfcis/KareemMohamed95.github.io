@@ -97,7 +97,7 @@ $.extend(mathInputBinding, {
 
 Shiny.inputBindings.register(mathInputBinding, 'shinymath.mathInput');
 
-Shiny.onInputChange("calculus_resources_ready","TRUE");
+Shiny.onInputChange("calculus_resources_ready",Math.random());
 
 }
 function addSqrtSymbol(inputId){
