@@ -4925,8 +4925,6 @@ for (var key in MQ1) (function(key, val) {
 
 }());
 
-window.addEventListener('load', function () {
-  Shiny.onInputChange("calculus_resources_ready",Math.random());
-})
+
 
 
