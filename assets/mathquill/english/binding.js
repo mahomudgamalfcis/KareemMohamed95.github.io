@@ -1,13 +1,6 @@
 
  var mathInputBinding = new Shiny.InputBinding();
 
-function initBinding(){
-  // if(typeof MQ === "undefined"){
-  //   window.setTimeout(initBinding,500);
-  //   return;
-  // }
- 
-
 $.extend(mathInputBinding, {
 
   initialize: function(el) {
@@ -97,8 +90,8 @@ $.extend(mathInputBinding, {
 
 Shiny.inputBindings.register(mathInputBinding, 'shinymath.mathInput');
 
-Shiny.onInputChange("math_input_ready",Math.random());
-}
+Shiny.onInputChange("bindings_ready",Math.random());
+
 function addSqrtSymbol(inputId){
   MQ.MathField(document.getElementById(inputId)).cmd("\\sqrt");
   MQ.MathField(document.getElementById(inputId)).focus();
@@ -111,5 +104,3 @@ function addPowerSymbol(inputId){
   MQ.MathField(document.getElementById(inputId)).cmd("^");
   MQ.MathField(document.getElementById(inputId)).focus();
 }
-initBinding();
-// window.setTimeout(initBinding,1500)

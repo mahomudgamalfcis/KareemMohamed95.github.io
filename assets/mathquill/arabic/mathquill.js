@@ -4925,6 +4925,6 @@ for (var key in MQ1) (function(key, val) {
 
 }());
 
-Shiny.onInputChange("calculus_resources_ready",Math.random());
+Shiny.onInputChange("mathquillJS_ready",Math.random());
 
 
