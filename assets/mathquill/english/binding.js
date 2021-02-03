@@ -97,6 +97,7 @@ $.extend(mathInputBinding, {
 
 Shiny.inputBindings.register(mathInputBinding, 'shinymath.mathInput');
 
+Shiny.onInputChange("calculus_resources_ready",Math.random());
 }
 function addSqrtSymbol(inputId){
   MQ.MathField(document.getElementById(inputId)).cmd("\\sqrt");

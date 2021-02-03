@@ -93,37 +93,7 @@ function initBinding(){
   
   Shiny.inputBindings.register(mathInputBinding, 'shinymath.mathInput');
 
-  function map(latex) {
-    let newLatex = "";
-    for(var i = 0;i < latex.length;i++) {
-      let mappedWord = "";
-      let j = i;
-      while(1) {
-        if(j == latex.length || isArabicChar(latex[j]) == false) {
-          break;
-        }
-        mappedWord += latex[j];
-        j++;
-      }
-      if(mappedWord.length == 0){
-        let finalMappedWord = arabicMapping[latex[i]];
-        if(!(finalMappedWord === undefined || finalMappedWord === null))newLatex += finalMappedWord;
-        else newLatex += latex[i];
-      }
-      else {
-        let finalMappedWord = arabicMapping[mappedWord];
-        if(!(finalMappedWord === undefined || finalMappedWord === null))newLatex += finalMappedWord;
-        i = j-1;
-      }
-    }
-    return newLatex;
-  }
-  
-  function isArabicChar(char) {
-    if(char == 'أ' || char == 'ا' || char == 'ب' || char == 'ج' || char == 'د' || char == 'ه' || char == 'و'
-     ||char == 'س' || char == 'ص' || char == 'ع' || char == 'ت' || char == 'ظ')return true;
-     return false;
-  }
+  Shiny.onInputChange("calculus_resources_ready",Math.random());
 }
 function addSqrtSymbol(inputId){
   MQ.MathField(document.getElementById(inputId)).cmd("\\sqrt");
@@ -140,6 +110,37 @@ function addPowerSymbol(inputId){
 function addArabicNumber(inputId, number){
   MQ.MathField(document.getElementById(inputId)).cmd(englishMapping[number]);
   MQ.MathField(document.getElementById(inputId)).focus();
+}
+function map(latex) {
+  let newLatex = "";
+  for(var i = 0;i < latex.length;i++) {
+    let mappedWord = "";
+    let j = i;
+    while(1) {
+      if(j == latex.length || isArabicChar(latex[j]) == false) {
+        break;
+      }
+      mappedWord += latex[j];
+      j++;
+    }
+    if(mappedWord.length == 0){
+      let finalMappedWord = arabicMapping[latex[i]];
+      if(!(finalMappedWord === undefined || finalMappedWord === null))newLatex += finalMappedWord;
+      else newLatex += latex[i];
+    }
+    else {
+      let finalMappedWord = arabicMapping[mappedWord];
+      if(!(finalMappedWord === undefined || finalMappedWord === null))newLatex += finalMappedWord;
+      i = j-1;
+    }
+  }
+  return newLatex;
+}
+
+function isArabicChar(char) {
+  if(char == 'أ' || char == 'ا' || char == 'ب' || char == 'ج' || char == 'د' || char == 'ه' || char == 'و'
+   ||char == 'س' || char == 'ص' || char == 'ع' || char == 'ت' || char == 'ظ')return true;
+   return false;
 }
 var arabicMapping = {
   "٠": "0",
