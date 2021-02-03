@@ -93,8 +93,6 @@ function initBinding(){
   
   Shiny.inputBindings.register(mathInputBinding, 'shinymath.mathInput');
 
-  Shiny.onInputChange("calculus_resources_ready",Math.random());
-
   function map(latex) {
     let newLatex = "";
     for(var i = 0;i < latex.length;i++) {
