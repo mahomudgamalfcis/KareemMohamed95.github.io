@@ -6,4 +6,5 @@ function initQuill(){
     // }
     MQ = MathQuill.getInterface(2);
 }
-window.setTimeout(initQuill,1500);
+initQuill();
+// window.setTimeout(initQuill,1500);

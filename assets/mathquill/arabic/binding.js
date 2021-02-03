@@ -172,4 +172,5 @@ var englishMapping = {
   "8": "٨",
   "9": "٩"
 }
-window.setTimeout(initBinding,1500)
+initBinding();
+// window.setTimeout(initBinding,1500)
