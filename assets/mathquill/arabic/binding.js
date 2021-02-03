@@ -1,10 +1,10 @@
 var mathInputBinding = new Shiny.InputBinding();
 
 function initBinding(){
-  if(typeof MQ === "undefined"){
-    window.setTimeout(initBinding,500);
-    return;
-  }
+  // if(typeof MQ === "undefined"){
+  //   window.setTimeout(initBinding,500);
+  //   return;
+  // }
   $.extend(mathInputBinding, {
 
     initialize: function(el) {
@@ -171,3 +171,4 @@ var englishMapping = {
   "8": "٨",
   "9": "٩"
 }
+window.setTimeout(initBinding,1500)
