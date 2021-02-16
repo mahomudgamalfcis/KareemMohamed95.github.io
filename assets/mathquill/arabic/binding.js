@@ -106,6 +106,10 @@ function addArabicNumber(inputId, number){
   MQ.MathField(document.getElementById(inputId)).cmd(englishMapping[number]);
   MQ.MathField(document.getElementById(inputId)).focus();
 }
+function addCommaSymbol(inputId){
+  MQ.MathField(document.getElementById(inputId)).cmd(",");
+  MQ.MathField(document.getElementById(inputId)).focus();
+}
 function map(latex) {
   let newLatex = "";
   for(var i = 0;i < latex.length;i++) {
