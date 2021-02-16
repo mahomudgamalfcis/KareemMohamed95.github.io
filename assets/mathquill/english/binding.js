@@ -1,5 +1,6 @@
 
  var mathInputBinding = new Shiny.InputBinding();
+ var lastFocusedInput = null;
 
 $.extend(mathInputBinding, {
 
@@ -53,11 +54,12 @@ $.extend(mathInputBinding, {
       callback(false);
     });
     $(el).on('focusin.mathInputBinding', function(event) { // on losing focus
-      var result = {
-        result: el.id,
-        nonce: Math.random()
-      }
-      Shiny.onInputChange("focused_input", result);
+      lastFocusedInput = el.id;
+      // var result = {
+      //   result: el.id,
+      //   nonce: Math.random()
+      // }
+      // Shiny.onInputChange("focused_input", result);
     });
   },
   unsubscribe: function(el) {
@@ -92,15 +94,18 @@ Shiny.inputBindings.register(mathInputBinding, 'shinymath.mathInput');
 
 Shiny.onInputChange("bindings_ready",Math.random());
 
-function addSqrtSymbol(inputId){
-  MQ.MathField(document.getElementById(inputId)).cmd("\\sqrt");
-  MQ.MathField(document.getElementById(inputId)).focus();
+function addSqrtSymbol(){
+  if(lastFocusedInput == null)return;
+  MQ.MathField(document.getElementById(lastFocusedInput)).cmd("\\sqrt");
+  MQ.MathField(document.getElementById(lastFocusedInput)).focus();
 }
-function addFracSymbol(inputId){
-  MQ.MathField(document.getElementById(inputId)).cmd("\\frac");
-  MQ.MathField(document.getElementById(inputId)).focus();
+function addFracSymbol(){
+  if(lastFocusedInput == null)return;
+  MQ.MathField(document.getElementById(lastFocusedInput)).cmd("\\frac");
+  MQ.MathField(document.getElementById(lastFocusedInput)).focus();
 }
-function addPowerSymbol(inputId){
-  MQ.MathField(document.getElementById(inputId)).cmd("^");
-  MQ.MathField(document.getElementById(inputId)).focus();
+function addPowerSymbol(){
+  if(lastFocusedInput == null)return;
+  MQ.MathField(document.getElementById(lastFocusedInput)).cmd("^");
+  MQ.MathField(document.getElementById(lastFocusedInput)).focus();
 }

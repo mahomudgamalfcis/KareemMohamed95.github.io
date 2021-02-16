@@ -1,3 +1,5 @@
+
+var lastFocusedInput = null;
 var mathInputBinding = new Shiny.InputBinding();
 
   $.extend(mathInputBinding, {
@@ -52,11 +54,12 @@ var mathInputBinding = new Shiny.InputBinding();
         callback(false);
       });
       $(el).on('focusin.mathInputBinding', function(event) { // on losing focus
-        var result = {
-          result: el.id,
-          nonce: Math.random()
-        }
-        Shiny.onInputChange("focused_input", result);
+        // var result = {
+        //   result: el.id,
+        //   nonce: Math.random()
+        // }
+        // Shiny.onInputChange("focused_input", result);
+        lastFocusedInput = el.id;
       });
     },
     unsubscribe: function(el) {
@@ -90,25 +93,30 @@ var mathInputBinding = new Shiny.InputBinding();
 
   Shiny.onInputChange("bindings_ready",Math.random());
 
-function addSqrtSymbol(inputId){
-  MQ.MathField(document.getElementById(inputId)).cmd("\\sqrt");
-  MQ.MathField(document.getElementById(inputId)).focus();
+  function addSqrtSymbol(){
+    if(lastFocusedInput == null)return;
+    MQ.MathField(document.getElementById(lastFocusedInput)).cmd("\\sqrt");
+    MQ.MathField(document.getElementById(lastFocusedInput)).focus();
+  }
+  function addFracSymbol(){
+    if(lastFocusedInput == null)return;
+    MQ.MathField(document.getElementById(lastFocusedInput)).cmd("\\frac");
+    MQ.MathField(document.getElementById(lastFocusedInput)).focus();
+  }
+  function addPowerSymbol(){
+    if(lastFocusedInput == null)return;
+    MQ.MathField(document.getElementById(lastFocusedInput)).cmd("^");
+    MQ.MathField(document.getElementById(lastFocusedInput)).focus();
+  }
+function addArabicNumber(number){
+  if(lastFocusedInput == null)return;
+  MQ.MathField(document.getElementById(lastFocusedInput)).cmd(englishMapping[number]);
+  MQ.MathField(document.getElementById(lastFocusedInput)).focus();
 }
-function addFracSymbol(inputId){
-  MQ.MathField(document.getElementById(inputId)).cmd("\\frac");
-  MQ.MathField(document.getElementById(inputId)).focus();
-}
-function addPowerSymbol(inputId){
-  MQ.MathField(document.getElementById(inputId)).cmd("^");
-  MQ.MathField(document.getElementById(inputId)).focus();
-}
-function addArabicNumber(inputId, number){
-  MQ.MathField(document.getElementById(inputId)).cmd(englishMapping[number]);
-  MQ.MathField(document.getElementById(inputId)).focus();
-}
-function addCommaSymbol(inputId){
-  MQ.MathField(document.getElementById(inputId)).cmd(",");
-  MQ.MathField(document.getElementById(inputId)).focus();
+function addCommaSymbol(){
+  if(lastFocusedInput == null)return;
+  MQ.MathField(document.getElementById(lastFocusedInput)).cmd(",");
+  MQ.MathField(document.getElementById(lastFocusedInput)).focus();
 }
 function map(latex) {
   let newLatex = "";
