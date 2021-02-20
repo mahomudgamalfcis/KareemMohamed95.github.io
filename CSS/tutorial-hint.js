@@ -1,39 +1,40 @@
 var inputsIds = {};
-$(document).on('shiny:inputchanged', function(event) {
-    //console.log("inputChange");
-    // console.log(event.name);
-    inputsIds[event.name] = inputsIds[event.name] == undefined ? 1:2;
-    // console.log(inputsIds[event.name]);
-    //$(document).off(\'shiny:inputchanged\');
- });
- displayYellowBulb = window.setTimeout(() => {
-    $('#bulbYellow_span').css({
-    "visibility": "visible",
-    "font-size": "37px",
-    "color": "yellow",
-    "position": "relative",
-    /*"right": "92px",*/
-    "z-index": "5",
-    "margin-right": "-25px",
-    "cursor": "pointer",
-    "animation": "MoveUpDown 2s linear infinite"
- });
- $('.btn-view-tutorial2').css({
- "background": "none"
- });
- }, 3000);
+$(document).on('shiny:inputchanged', function (event) {
+    console.log(event.name);
+    inputsIds[event.name] = inputsIds[event.name] == undefined ? 1 : 2;
+    if (inputsIds[event.name] == 2) {
+        stopYellowBulb();
+        $(document).off('shiny:inputchanged');
+    }
+});
 
- function printfun(){
-     clearTimeout(displayYellowBulb)
- }
- function hideYellowBulb(){
-    $('#bulbYellow_span').css({
-        "visibility": "hidden",
+displayYellowBulb = window.setTimeout(() => {
+    $('#bulb-yellow-span').css({
+        "visibility": "visible",
+        "font-size": "36px",
+        "color": "yellow",
+        "position": "relative",
+        "z-index": "5",
+        "margin-right": "-25px",
+        "cursor": "pointer",
+        "animation": "MoveUpDown 2s linear infinite"
+    });
+    $('.btn-view-tutorial').css({
+        "background": "none"
+    });
+}, 4000);
+
+function stopYellowBulb() {
+    clearTimeout(displayYellowBulb)
+}
+function hideYellowBulb() {
+    $('#bulb-yellow-span').css({
         "font-size": "1px",
         "margin-right": "0px",
-     });
-     $('.btn-view-tutorial2').css({
-     "background-image": "url('deprecated/images/pulp-white.png')",
-     "background-repeat": "no-repeat"
-     });
- }
+        "visibility": "hidden"
+    });
+    $('.btn-view-tutorial').css({
+        "background-image": "url('deprecated/images/pulp-white.png')",
+        "background-repeat": "no-repeat"
+    });
+}
