@@ -28,6 +28,7 @@ function stopYellowBulb() {
     clearTimeout(displayYellowBulb)
 }
 function hideYellowBulb() {
+    $(document).off('shiny:inputchanged');
     $('#bulb-yellow-span').css({
         "font-size": "1px",
         "margin-right": "0px",
