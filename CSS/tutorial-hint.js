@@ -1,6 +1,5 @@
 var inputsIds = {};
 $(document).on('shiny:inputchanged', function (event) {
-    console.log(event.name);
     inputsIds[event.name] = inputsIds[event.name] == undefined ? 1 : 2;
     if (inputsIds[event.name] == 2) {
         stopYellowBulb();
