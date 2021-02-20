@@ -21,7 +21,7 @@ displayYellowBulb = window.setTimeout(() => {
     $('.btn-view-tutorial').css({
         "background": "none"
     });
-}, 4000);
+}, 180000);
 
 function stopYellowBulb() {
     clearTimeout(displayYellowBulb)
