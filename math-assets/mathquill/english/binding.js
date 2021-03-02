@@ -109,3 +109,18 @@ function addPowerSymbol(){
   MQ.MathField(document.getElementById(lastFocusedInput)).cmd("^");
   MQ.MathField(document.getElementById(lastFocusedInput)).focus();
 }
+function addEnglishNumber(number){
+  if(lastFocusedInput == null)return;
+  MQ.MathField(document.getElementById(lastFocusedInput)).cmd(number.toString());
+  MQ.MathField(document.getElementById(lastFocusedInput)).focus();
+}
+function addEnglishPiSymbol(){
+  if(lastFocusedInput == null)return;
+  MQ.MathField(document.getElementById(lastFocusedInput)).cmd("\\pi");
+  MQ.MathField(document.getElementById(lastFocusedInput)).focus();
+}
+function addEnglishCommaSymbol(){
+  if(lastFocusedInput == null)return;
+  MQ.MathField(document.getElementById(lastFocusedInput)).cmd(".");
+  MQ.MathField(document.getElementById(lastFocusedInput)).focus();
+}

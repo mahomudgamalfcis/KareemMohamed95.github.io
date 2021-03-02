@@ -113,7 +113,12 @@ function addArabicNumber(number){
   MQ.MathField(document.getElementById(lastFocusedInput)).cmd(englishMapping[number]);
   MQ.MathField(document.getElementById(lastFocusedInput)).focus();
 }
-function addCommaSymbol(){
+function addArabicPiSymbol(){
+  if(lastFocusedInput == null)return;
+  MQ.MathField(document.getElementById(lastFocusedInput)).cmd("ط");
+  MQ.MathField(document.getElementById(lastFocusedInput)).focus();
+}
+function addArabicCommaSymbol(){
   if(lastFocusedInput == null)return;
   MQ.MathField(document.getElementById(lastFocusedInput)).cmd(",");
   MQ.MathField(document.getElementById(lastFocusedInput)).focus();
