@@ -27,18 +27,10 @@
     top:1px;
 }
 
-.fracClass{
-	background-image: url(../images/fraction.png);
-	background-repeat: no-repeat;
-	background-position: center;
+.mathquill-editable {
+   background: #FFFFFF;
+   border: 1px solid #FFB846;
+   box-sizing: border-box;
+   border-radius: 6px;
 }
-.sqrtClass{
-	background-image: url(../images/square_en.png);
-	background-repeat: no-repeat;
-	background-position: center;
-}
-.powerClass{
-	background-image: url(../images/power_en.png);
-	background-repeat: no-repeat;
-	background-position: center;
-}
+
