@@ -1,18 +1,4 @@
-.fracClass{
-	background-image: url(../images/fraction.png);
-	background-repeat: no-repeat;
-	background-position: center;
-}
-.sqrtClass{
-	background-image: url(../images/square_en.png);
-	background-repeat: no-repeat;
-	background-position: center;
-}
-.powerClass{
-	background-image: url(../images/power_en.png);
-	background-repeat: no-repeat;
-	background-position: center;
-}
+
 .quill-fs-20{
 	font-size: 20px;
 }
@@ -39,4 +25,20 @@
 .calculus_btn_class:active {
     position: relative;
     top:1px;
+}
+
+.fracClass{
+	background-image: url(../images/fraction.png);
+	background-repeat: no-repeat;
+	background-position: center;
+}
+.sqrtClass{
+	background-image: url(../images/square_en.png);
+	background-repeat: no-repeat;
+	background-position: center;
+}
+.powerClass{
+	background-image: url(../images/power_en.png);
+	background-repeat: no-repeat;
+	background-position: center;
 }
